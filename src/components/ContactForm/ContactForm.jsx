@@ -14,13 +14,18 @@ export default function ContactForm ({onSubmit}) {
   const nameInputId = shortid.generate();
   const numberInputId = shortid.generate();
 
+
   const handleChangeName = e => {
-    setState({name: e.currentTarget.value});
-  };
+    setState(prevState => {
+      return { ...prevState, name: e.target.value }});
+    }
+
 
   const handleChangeNumber = e => {
-    setState({number: e.currentTarget.value });
+    setState(prevState => {
+      return { ...prevState, number: e.target.value }});
   };
+
 
   const handleSubmit = e => {
     e.preventDefault();
